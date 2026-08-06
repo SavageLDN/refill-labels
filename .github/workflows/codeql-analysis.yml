@@ -6,6 +6,13 @@ on:
   pull_request:
     branches: [ main ]
 
+# Grant minimal permissions needed so the action can run for Dependabot and other bot actors
+permissions:
+  contents: read
+  packages: write
+  id-token: write
+  security-events: write
+
 jobs:
   analyze:
     name: Analyze (CodeQL)
@@ -21,6 +28,12 @@ jobs:
 
       - name: Autobuild
         uses: github/codeql-action/autobuild@v2
+
+      - name: Pre-compile Python to catch syntax errors
+        run: |
+          python -m pip install --upgrade pip
+          pip install --no-cache-dir compileall
+          python -m compileall -q .
 
       - name: Perform CodeQL analysis
         uses: github/codeql-action/analyze@v2
