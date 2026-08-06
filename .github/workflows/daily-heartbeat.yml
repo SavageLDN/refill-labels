@@ -1,0 +1,22 @@
+name: "Daily activity heartbeat"
+
+on:
+  schedule:
+    - cron: '0 8 * * *' # daily at 08:00 UTC
+  workflow_dispatch:
+
+jobs:
+  heartbeat:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Heartbeat
+        run: |
+          echo "heartbeat: $(date -u)" >> activity.log
+          git config user.name "copilot-bot"
+          git config user.email "copilot@local"
+          git add activity.log || true
+          git commit -m "chore: daily heartbeat" || true
+          echo "done"
