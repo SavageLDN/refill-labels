@@ -221,7 +221,7 @@ def draw_single_label(c, x0, y0, flavour, product_line, w=LABEL_W, h=LABEL_H):
         base_fs = max(12, int(min(48, (w / mm) * 0.28 * 10)))
         # apply per-flavour scaling: conditioner & toilet need smaller flavour text
         if key == 'dragonfruit':
-            fontsize = int(base_fs * 0.45)  # reduce more for dragonfruit (was too large)
+            fontsize = int(base_fs * 0.50)  # set conditioner flavour to 50% of base
         elif key == 'mint':
             fontsize = int(base_fs * 0.5)
         else:
@@ -265,6 +265,13 @@ def draw_single_label(c, x0, y0, flavour, product_line, w=LABEL_W, h=LABEL_H):
         prod_y = flavour_bottom - (10 * mm)
     else:
         prod_y = flavour_bottom - (6 * mm)
+
+    # Apply small manual nudges requested: vinegar down 6mm, spearmint down 6mm
+    if key == 'lemon':
+        prod_y = prod_y - (6 * mm)  # move vinegar product line further down
+    if key == 'mint':
+        prod_y = prod_y - (6 * mm)  # move spearmint product-type further down
+
     c.drawCentredString(w / 2, prod_y, product_line)
 
     # Separator moved beneath the product line with consistent gap
