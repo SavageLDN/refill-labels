@@ -1,0 +1,15 @@
+[project]
+name = "refill-labels"
+version = "0.1.0"
+description = "Print-ready label generator for refill products"
+readme = "README.md"
+authors = [ { name="Stuart Savage" } ]
+requires-python = ">=3.10"
+
+[project.dependencies]
+Pillow = "^10.0"
+reportlab = "^4.0"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
