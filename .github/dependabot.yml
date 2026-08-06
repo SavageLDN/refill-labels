@@ -1,0 +1,12 @@
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    vendors:
+      - "pypi"
+    # only check the generator and dependencies
+    allow:
+      - dependency-type: "direct"

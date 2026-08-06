@@ -1,0 +1,49 @@
+name: Regenerate PDFs
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    tags: ['v*']
+    paths:
+      - 'build_laundry_label.py'
+      - 'assets/**'
+      - '.devcontainer/**'
+      - '.github/workflows/**'
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'build_laundry_label.py'
+      - 'assets/**'
+      - '.devcontainer/**'
+
+jobs:
+  build-and-generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install --no-cache-dir pillow reportlab
+
+      - name: Run label generator script
+        run: |
+          python "build_laundry_label.py"
+
+      - name: Upload generated PDFs artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-pdfs
+          path: output/pdf

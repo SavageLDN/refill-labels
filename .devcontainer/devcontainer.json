@@ -1,0 +1,19 @@
+{
+  "name": "Label Generator Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/python:3.10",
+  "features": {},
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter",
+        "ms-azuretools.vscode-docker",
+        "eamodio.gitlens"
+      ]
+    }
+  },
+  "postCreateCommand": "pip install --no-cache-dir pillow reportlab",
+  "forwardPorts": [],
+  "remoteUser": "vscode"
+}
