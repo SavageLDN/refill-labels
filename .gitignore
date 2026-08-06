@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# IDE/editor
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.swp
+
+# Copilot session state and artifacts
+.copilot/
+C:\Users\moonl\.copilot\
+
+# Ignore python bytecode and caches
+.python-version
+
+# Logs
+*.log
+
+# Ignore temporary PDF build files
+output/pdf/*.tmp
+
+# Keep generated PDFs (intentionally not ignored) unless you want them out of the repo
