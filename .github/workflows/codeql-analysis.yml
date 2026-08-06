@@ -6,7 +6,6 @@ on:
   pull_request:
     branches: [ main ]
 
-# Grant minimal permissions needed so the action can run for Dependabot and other bot actors
 permissions:
   contents: read
   packages: write
