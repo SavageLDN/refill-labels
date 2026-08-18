@@ -1,17 +1,20 @@
-Miniml label generator
+# Refill & Pantry Label Automation Toolkit
 
-This repository contains a Python script and assets used to generate printable product labels (individual PDFs and A4 print sheets).
+Automated toolchain built with Python, ReportLab, and PyPDF.
 
-Quick start (Windows):
-- Install Python 3.10+ and required libraries (Pillow, reportlab)
-- From the project folder run:
-  python "build_laundry_label.py"
+## Label Sizes
+* Cornflour & Icing Sugar: 70x40mm
+* Baking Essentials: 80x60mm
+* Spice Selection: 80x60mm
+* Rolled Oats: 60x80mm
+* Plain Flour: 60x80mm
+* Stock Cubes: 100x70mm
+* Toilet Cleaner: 80x110mm
+* Complete Sheet: A4 (All 7 on 1 Page)
 
-Outputs:
-- Generated PDFs are saved in: output\pdf
-
-Notes:
-- Fonts are registered from Windows system fonts; if a font is missing the script falls back to built-ins.
-- The script selects the best backdrop image from the assets folder and scales proportionally (no stretching).
-
-Co-authored-by: Copilot App <223556219+Copilot@users.noreply.github.com>
+## Quick Start
+```bash
+pip install reportlab pillow pypdf python-barcode
+python build_custom_pantry_labels.py
+python build_blank_templates.py
+```
