@@ -62,6 +62,40 @@ def draw_clean_shadow_text(c, x, y, text, font_name, font_size, fill_colour, off
     c.drawCentredString(x, y, text)
     c.restoreState()
 
+from reportlab.graphics.barcode import eanbc, code128, qr
+from reportlab.graphics.shapes import Drawing
+
+def draw_code_element(c, x, y, label_def, max_w=40*mm, max_h=15*mm):
+    if "ean" in label_def:
+        try:
+            val = str(label_def["ean"])
+            bc = eanbc.Ean13BarcodeWidget(val)
+            bc.barHeight = 10 * mm
+            bc.barWidth = 0.8
+            d = Drawing(bc.width, bc.height)
+            d.add(bc)
+            d.drawOn(c, x - bc.width/2, y)
+        except Exception:
+            pass
+    elif "barcode" in label_def:
+        try:
+            val = str(label_def["barcode"])
+            bc = code128.Code128(val, barHeight=8*mm, barWidth=0.7)
+            bc.drawOn(c, x - bc.width/2, y)
+        except Exception:
+            pass
+    elif "qr" in label_def:
+        try:
+            val = str(label_def["qr"])
+            q = qr.QrCodeWidget(val)
+            q.barWidth = 14*mm
+            q.barHeight = 14*mm
+            d = Drawing(14*mm, 14*mm)
+            d.add(q)
+            d.drawOn(c, x - 7*mm, y)
+        except Exception:
+            pass
+
 def draw_backdrop(c, w, h):
     backdrop_path = ASSETS_DIR / "wanaka-night-sky-80x110.png"
     if backdrop_path.exists():
@@ -117,6 +151,10 @@ def generate_single_label(label_def, idx):
         c.line(16*mm, h/2 - 1*mm, w - 16*mm, h/2 - 1*mm)
         item_text = "   •   ".join(items)
         draw_clean_shadow_text(c, w/2, h/2 - 8*mm, item_text, "LabelElegant", 9.5, CREAM)
+
+        # Draw dynamic barcode / QR if specified
+    if any(k in label_def for k in ["ean", "barcode", "qr"]):
+        draw_code_element(c, w/2, 6*mm, label_def)
 
     c.showPage()
     c.save()
