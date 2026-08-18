@@ -1,0 +1,10 @@
+[
+  {"size": "80x60", "subtitle": "Spice Selection", "title": "Cumin", "items": ["Organic", "Whole Seeds"]},
+  {"size": "80x60", "subtitle": "Spice Selection", "title": "Coriander", "items": ["Crushed", "Aromatic"]},
+  {"size": "80x60", "subtitle": "Spice Selection", "title": "Turmeric", "items": ["Ground", "Pure"]},
+  {"size": "70x40", "subtitle": "Baking", "title": "Caster Sugar"},
+  {"size": "70x40", "subtitle": "Baking", "title": "Bicarbonate"},
+  {"size": "60x80", "subtitle": "Pantry Essentials", "title": "Basmati Rice"},
+  {"size": "60x80", "subtitle": "Pantry Essentials", "title": "Quinoa"},
+  {"size": "100x70", "subtitle": "Pantry Essentials", "title": "Bouillon Cubes", "items": ["Beef", "Chicken", "Vegetable"]}
+]
