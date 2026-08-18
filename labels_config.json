@@ -1,0 +1,57 @@
+{
+  "stock_cubes": {
+    "subtitle": "Pantry Essentials",
+    "title": "Stock Cubes",
+    "items": [
+      "Chicken",
+      "Beef",
+      "Vegetable"
+    ]
+  },
+  "baking_essentials": {
+    "title": "Baking & Pantry Essentials",
+    "items_left": [
+      "Baking Powder",
+      "Vanilla Essence",
+      "Honey"
+    ],
+    "items_right": [
+      "Baking Soda",
+      "Chocolate Powder"
+    ]
+  },
+  "spice_selection": {
+    "title": "Aromatic Spice Selection",
+    "items": [
+      "Coriander Seeds",
+      "Cumin Seeds",
+      "Chinese 5 Spice",
+      "Ground Ginger",
+      "Lemongrass & Lime Leaves"
+    ]
+  },
+  "rolled_oats": {
+    "subtitle": "Pantry Essentials",
+    "line1": "Rolled",
+    "line2": "Oats"
+  },
+  "plain_flour": {
+    "subtitle": "Baking Essentials",
+    "line1": "Plain",
+    "line2": "Flour"
+  },
+  "cornflour": {
+    "subtitle": "Baking Essentials",
+    "line1": "Cornflour",
+    "line2": "&",
+    "line3": "Icing Sugar"
+  },
+  "toilet_cleaner": {
+    "brand": "miniml",
+    "fragrance_top": "Spearmint",
+    "fragrance_and": "&",
+    "fragrance_bottom": "Peppermint",
+    "product_name": "Eco Toilet Cleaner",
+    "badge": "Refill"
+  }
+}
