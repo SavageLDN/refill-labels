@@ -1,5 +1,6 @@
 [
-  {"size": "80x60", "subtitle": "Organic Spices", "title": "Cumin Seeds", "items": ["Whole", "Aromatic"], "ean": "506012345678"},
-  {"size": "80x60", "subtitle": "Refill Station", "title": "Toilet Cleaner", "items": ["Spearmint", "Peppermint"], "qr": "https://miniml.co.uk"},
-  {"size": "70x40", "subtitle": "Pantry Batch", "title": "Caster Sugar", "barcode": "BATCH-2026-08"}
+  {"size": "80x60", "theme": "celestial", "subtitle": "Classic Series", "title": "Cumin Seeds", "ean": "506012345678"},
+  {"size": "80x60", "theme": "sage", "subtitle": "Botanical Series", "title": "Rosemary", "items": ["Organic", "Herbs"]},
+  {"size": "80x60", "theme": "terracotta", "subtitle": "Artisan Series", "title": "Sea Salt", "items": ["Coarse", "Flaky"]},
+  {"size": "70x40", "theme": "minimalist", "subtitle": "Modern Clean", "title": "Black Pepper"}
 ]

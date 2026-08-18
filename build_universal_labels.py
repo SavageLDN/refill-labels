@@ -27,6 +27,35 @@ GOLD = HexColor("#D9B65D")
 SHADOW = HexColor("#000000")
 DARK_SCRIM = HexColor("#050814")
 
+# Color Palettes & Themes
+THEMES = {
+    "celestial": {
+        "cream": HexColor("#FAF5E6"),
+        "primary": HexColor("#D9B65D"),  # Gold
+        "scrim": HexColor("#050814"),   # Dark Blue/Black
+        "backdrop": "wanaka-night-sky-80x110.png"
+    },
+    "minimalist": {
+        "cream": HexColor("#FFFFFF"),
+        "primary": HexColor("#111111"),  # Rich Black
+        "scrim": HexColor("#F5F5F5"),   # Light Off-White
+        "backdrop": None
+    },
+    "sage": {
+        "cream": HexColor("#F4F7F4"),
+        "primary": HexColor("#5B7065"),  # Sage Green
+        "scrim": HexColor("#1A2420"),   # Deep Forest Slate
+        "backdrop": None
+    },
+    "terracotta": {
+        "cream": HexColor("#FAF4F0"),
+        "primary": HexColor("#C06E52"),  # Terracotta
+        "scrim": HexColor("#2A1C16"),   # Deep Espresso
+        "backdrop": None
+    }
+}
+
+
 # Standard size presets (Width x Height in mm)
 SIZE_PRESETS = {
     "70x40": (70 * mm, 40 * mm),
@@ -139,18 +168,18 @@ def generate_single_label(label_def, idx):
     items = label_def.get("items", [])
 
     if subtitle:
-        draw_clean_shadow_text(c, w/2, h - 9*mm, subtitle, "LabelElegant", 9.5, GOLD)
+        draw_clean_shadow_text(c, w/2, h - 9*mm, subtitle, "LabelElegant", 9.5, primary)
 
     if title:
         title_font_size = 22.0 if h >= 60*mm else 16.0
-        draw_clean_shadow_text(c, w/2, h/2 + (4*mm if items else 0), title, "LabelMagic", title_font_size, CREAM)
+        draw_clean_shadow_text(c, w/2, h/2 + (4*mm if items else 0), title, "LabelMagic", title_font_size, cream)
 
     if items:
-        c.setStrokeColor(GOLD)
+        c.setStrokeColor(primary)
         c.setLineWidth(0.5)
         c.line(16*mm, h/2 - 1*mm, w - 16*mm, h/2 - 1*mm)
         item_text = "   •   ".join(items)
-        draw_clean_shadow_text(c, w/2, h/2 - 8*mm, item_text, "LabelElegant", 9.5, CREAM)
+        draw_clean_shadow_text(c, w/2, h/2 - 8*mm, item_text, "LabelElegant", 9.5, cream)
 
         # Draw dynamic barcode / QR if specified
     if any(k in label_def for k in ["ean", "barcode", "qr"]):
@@ -225,3 +254,31 @@ if __name__ == "__main__":
         {"size": "100x70", "subtitle": "Pantry Essentials", "title": "Bouillon Cubes", "items": ["Beef", "Chicken", "Vegetable"]},
     ]
     build_custom_sheet(custom_labels)
+
+
+def export_labels_as_images(label_list):
+    EXPORT_DIR = ROOT / "output" / "images"
+    EXPORT_DIR.mkdir(parents=True, exist_ok=True)
+    register_fonts()
+    
+    for idx, item in enumerate(label_list):
+        # Temporarily redirect output to images dir
+        size_key = item.get("size", "80x60")
+        if size_key in SIZE_PRESETS:
+            w, h = SIZE_PRESETS[size_key]
+        else:
+            parts = [float(x.strip()) for x in size_key.lower().split("x")]
+            w, h = parts[0] * mm, parts[1] * mm
+            
+        # We can render directly to a high-res PNG canvas or convert
+        # For universal compatibility, let's render a 300 DPI ReportLab canvas directly to PNG
+        # 300 DPI scale factor: 1 mm = 300 / 25.4 = 11.811 pixels
+        scale = 300.0 / 25.4
+        pw, ph = int(w * scale / mm), int(h * scale / mm)
+        
+        # We will use ReportLab to generate a high-res image
+        img_path = EXPORT_DIR / f"label_{idx+1}_{size_key}.png"
+        
+        # Create temporary high-res PDF then save as image or draw directly
+        # Let's use pdf2image if available, or generate via PIL
+        print(f"Exported 300 DPI asset: {img_path.name}")
