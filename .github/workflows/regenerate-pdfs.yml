@@ -43,7 +43,7 @@ jobs:
           python "build_laundry_label.py"
 
       - name: Upload generated PDFs artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: generated-pdfs
           path: output/pdf

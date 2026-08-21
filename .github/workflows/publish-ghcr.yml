@@ -45,7 +45,7 @@ jobs:
 
       - name: Create release artifact (PDFs)
         if: success()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: a4-pdfs
           path: output/pdf/**
