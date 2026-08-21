@@ -1,6 +1,11 @@
 [
-  {"size": "80x60", "theme": "celestial", "subtitle": "Classic Series", "title": "Cumin Seeds", "ean": "506012345678"},
-  {"size": "80x60", "theme": "sage", "subtitle": "Botanical Series", "title": "Rosemary", "items": ["Organic", "Herbs"]},
-  {"size": "80x60", "theme": "terracotta", "subtitle": "Artisan Series", "title": "Sea Salt", "items": ["Coarse", "Flaky"]},
-  {"size": "70x40", "theme": "minimalist", "subtitle": "Modern Clean", "title": "Black Pepper"}
+  {"size": "80x80", "theme": "celestial", "subtitle": "Kitchen Essential", "title": "Vegetable Oil", "items": ["Roast", "Bake", "Fry"]},
+  {"size": "60x90", "theme": "celestial", "subtitle": "Artisan Series", "title": "Cold Pressed Rapeseed Oil", "items": ["High in Omega 3"]},
+  {"size": "100x40", "theme": "celestial", "subtitle": "Pantry Tub", "title": "Dried Herbs", "items": ["Onion Granules", "Oregano", "Basil", "Provence"]},
+  {"size": "100x40", "theme": "celestial", "subtitle": "Pantry Tub", "title": "Spices & Heat", "items": ["Cayenne", "Mild Chilli", "Black Mustard Seeds"]},
+  {"size": "100x40", "theme": "celestial", "subtitle": "Pantry Tub", "title": "Breakfast Oats", "items": ["Quaker Oat So Simple Sachets"]},
+  {"size": "100x40", "theme": "celestial", "subtitle": "Pantry Tub", "title": "Sauces & Condiments", "items": ["Worcestershire", "Rice Vinegar", "Sesame", "Dark Soy"]},
+  {"size": "100x40", "theme": "celestial", "subtitle": "Pantry Tub", "title": "Grains & Snacks", "items": ["Roasted Veg Couscous", "Peanuts"]},
+  {"size": "100x40", "theme": "celestial", "subtitle": "Pantry Tub", "title": "Warm Spices", "items": ["Garam Masala", "Cumin", "Cinnamon"]},
+  {"size": "100x40", "theme": "celestial", "subtitle": "Pantry Tub", "title": "Specialty Spices", "items": ["Star Anise", "Turmeric Latte", "Thai Spice"]}
 ]
